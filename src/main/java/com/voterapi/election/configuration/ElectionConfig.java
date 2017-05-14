@@ -13,7 +13,7 @@ public class ElectionConfig {
      * @return
      */
     @Bean
-    public Queue candidateQueue() {
+    public Queue electionQueue() {
         return new Queue("elections.queue");
     }
 
