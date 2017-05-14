@@ -1,0 +1,86 @@
+endpoints:
+  enabled: true
+  sensitive: false
+info:
+  java:
+    source: "${java.version}"
+logging:
+  level:
+    root: INFO
+management:
+  info:
+    build:
+      enabled: true
+    git:
+      mode: full
+server:
+  port: 8095
+  context-path: /election
+spring:
+  application:
+    name: Election Service
+  data:
+    mongodb:
+      database: elections
+      host: localhost
+      port: 27017
+  rabbitmq:
+    host: localhost
+---
+spring:
+  data:
+    mongodb:
+      host: mongodb
+  rabbitmq:
+    host: rabbitmq
+  profiles: docker-local
+---
+endpoints:
+  candidate:
+    host: election
+  enabled: false
+  health:
+    enabled: true
+  info:
+    enabled: true
+  sensitive: true
+logging:
+  level:
+    root: WARN
+management:
+  info:
+    build:
+      enabled: false
+    git:
+      enabled: false
+spring:
+  data:
+    mongodb:
+      host: "10.0.1.6"
+  rabbitmq:
+    host: "10.0.1.8"
+  profiles: aws-production
+---
+endpoints:
+  enabled: false
+  health:
+    enabled: true
+  info:
+    enabled: true
+  sensitive: true
+logging:
+  level:
+    root: WARN
+management:
+  info:
+    build:
+      enabled: false
+    git:
+      enabled: false
+spring:
+  data:
+    mongodb:
+      host: mongodb
+  rabbitmq:
+    host: rabbitmq
+  profiles: docker-production
