@@ -8,5 +8,5 @@ import java.util.List;
 
 
 public interface ElectionRepository extends MongoRepository<Election, String> {
-        List<Election> findByElectionType(@Param("electionType") String electionType);
+        List<Election> findByElectionTypeContaining(@Param("electionType") String electionType);
 }
