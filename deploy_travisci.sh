@@ -13,7 +13,7 @@
 #set -x
 
 SERVICE_NAME=${1:-election}
-
+BRANCH=${2:-rabbitmq}
 
 # Builds and deploys JAR build artifact to GitHub (acts as binary repository)
 cd build/libs
@@ -33,9 +33,9 @@ set -ex
 
 sleep 120 # wait for automated Docker Hub build to finish...
 IMAGE="garystafford/${SERVICE_NAME}-service"
-docker build -t ${IMAGE}:rabbitmq .
-docker push ${IMAGE}:rabbitmq
+docker build -t ${IMAGE}:${BRANCH} .
+docker push ${IMAGE}:${BRANCH}
 
 IMAGE_TAG="0.3.${TRAVIS_BUILD_NUMBER}"
-docker tag ${IMAGE}:rabbitmq ${IMAGE}:${IMAGE_TAG}
+docker tag ${IMAGE}:${BRANCH} ${IMAGE}:${IMAGE_TAG}
 docker push ${IMAGE}:${IMAGE_TAG}
