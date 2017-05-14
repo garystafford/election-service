@@ -12,6 +12,9 @@
 
 #set -x
 
+SERVICE_NAME=${1:-election}
+
+
 # Builds and deploys JAR build artifact to GitHub (acts as binary repository)
 cd build/libs
 git init
@@ -29,7 +32,7 @@ docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
 set -ex
 
 sleep 120 # wait for automated Docker Hub build to finish...
-IMAGE="garystafford/candidate-service"
+IMAGE="garystafford/${SERVICE_NAME}-service"
 docker build -t ${IMAGE}:rabbitmq .
 docker push ${IMAGE}:rabbitmq
 
