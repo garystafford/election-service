@@ -123,7 +123,7 @@ X-Application-Context: Election Service:8095
 
 The project's source code is continuously built and tested on every commit to [GitHub](https://github.com/garystafford/election-service), using [Travis CI](https://travis-ci.org/garystafford/election-service). If all unit tests pass, the resulting Spring Boot JAR is pushed to the `build-artifacts` branch of the [election-service](https://github.com/garystafford/election-service/tree/build-artifacts) GitHub repository. The JAR's filename is incremented with each successful build (i.e. `election-service-0.3.10.jar`).
 
-![Vote Continuous Integration Pipeline](voter_flow.png)
+![Vote Continuous Integration Pipeline](voter_flow_2.png)
 
 ## Spring Profiles
 
