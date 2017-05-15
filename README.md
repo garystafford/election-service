@@ -6,6 +6,8 @@
 
 The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by [MongoDB](https://www.mongodb.com/). It is part of the Voter API project (see below). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections, and inspect technical information about the running service. API users can also create sample elections by calling the `/election/simulation` endpoint.
 
+![Voter API Architecture](Message_Queue_Diagram_4.png)
+
 ## Quick Start for Local Development
 
 The Election service requires MongoDB to be running locally, on port `27017`, RabbitMQ running on `5672` and `15672`. The Election service runs on port `8095`. To clone, build, test, and run the Election service as a JAR file, locally:
@@ -121,7 +123,7 @@ X-Application-Context: Election Service:8095
 
 The project's source code is continuously built and tested on every commit to [GitHub](https://github.com/garystafford/election-service), using [Travis CI](https://travis-ci.org/garystafford/election-service). If all unit tests pass, the resulting Spring Boot JAR is pushed to the `build-artifacts` branch of the [election-service](https://github.com/garystafford/election-service/tree/build-artifacts) GitHub repository. The JAR's filename is incremented with each successful build (i.e. `election-service-0.3.10.jar`).
 
-![Vote Continuous Integration Pipeline](Voter-CI.png)
+![Vote Continuous Integration Pipeline](voter_flow.png)
 
 ## Spring Profiles
 
