@@ -6,7 +6,7 @@
 
 The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by [MongoDB](https://www.mongodb.com/). It is part of the Voter API project (see below). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections, and inspect technical information about the running service. API users can also create sample elections by calling the `/election/simulation` endpoint.
 
-![Voter API Architecture](Message_Queue_Diagram_4.png)
+![Voter API Architecture](Message_Queue_Diagram_Final.png)
 
 ## Quick Start for Local Development
 
