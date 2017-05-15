@@ -1,14 +1,14 @@
 [![Build Status](https://travis-ci.org/garystafford/election-service.svg?branch=rabbitmq)](https://travis-ci.org/garystafford/election-service) [![Layers](https://images.microbadger.com/badges/image/garystafford/election-service.svg)](https://microbadger.com/images/garystafford/election-service "Get your own image badge on microbadger.com") [![Version](https://images.microbadger.com/badges/version/garystafford/election-service.svg)](https://microbadger.com/images/garystafford/election-service "Get your own version badge on microbadger.com")
 
-# Voter Service
+# Election Service
 
 ## Introduction
 
-The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by [MongoDB](https://www.mongodb.com/). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections, and inspect technical information about the running service. API users can also create sample elections by calling the `/election/simulation` endpoint.
+The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by [MongoDB](https://www.mongodb.com/). It is part of the Voter API project (see below). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections, and inspect technical information about the running service. API users can also create sample elections by calling the `/election/simulation` endpoint.
 
 ## Quick Start for Local Development
 
-The Election service requires MongoDB to be running locally, on port `27017`, RabbitMQ running on `5672` and `15672`, and the Candidate service to be running on `8095`. To clone, build, test, and run the Voter service as a JAR file, locally:
+The Election service requires MongoDB to be running locally, on port `27017`, RabbitMQ running on `5672` and `15672`. The Election service runs on port `8095`. To clone, build, test, and run the Election service as a JAR file, locally:
 
 ```bash
 git clone --depth 1 --branch rabbitmq \
