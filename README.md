@@ -72,7 +72,7 @@ Creating a new election requires an HTTP `POST` request to the `/election/electi
 
 Using [HTTPie](https://httpie.org/) command line HTTP client.
 
-```text
+```bash
 http POST http://localhost:8095/election/elections \
   date='2008-11-04' \
   electionType='FEDERAL' \
@@ -81,10 +81,12 @@ http POST http://localhost:8095/election/elections \
 
 ## Sample Output
 
-`http POST http://localhost:8095/election/elections \
+```bash
+http POST http://localhost:8095/election/elections \
   date='2008-11-04' \
   electionType='FEDERAL' \
-  title='2008 Presidential Election'`
+  title='2008 Presidential Election'
+```
 
 ```text
 HTTP/1.1 201
