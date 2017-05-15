@@ -55,16 +55,16 @@ The service uses a context path of `/election`. All endpoints must be are prefix
 
 Purpose                                                                                                                  | Method  | Endpoint
 ------------------------------------------------------------------------------------------------------------------------ | :------ | :-----------------------------------------------------
-Create Sample Elections                                                                                                  | GET     | [/election/simulation](http://localhost:8099/election/simulation)
-Create Election                                                                                                          | POST    | [/election/elections](http://localhost:8099/election/elections)
-View Elections                                                                                                           | GET     | [/election/elections](http://localhost:8099/election/elections)
-Service Info                                                                                                             | GET     | [/election/info](http://localhost:8099/election/info)
-Service Health                                                                                                           | GET     | [/election/health](http://localhost:8099/election/health)
-Service Metrics                                                                                                          | GET     | [/election/metrics](http://localhost:8099/election/metrics)
+Create Sample Elections                                                                                                  | GET     | [/election/simulation](http://localhost:8095/election/simulation)
+Create Election                                                                                                          | POST    | [/election/elections](http://localhost:8095/election/elections)
+View Elections                                                                                                           | GET     | [/election/elections](http://localhost:8095/election/elections)
+Service Info                                                                                                             | GET     | [/election/info](http://localhost:8095/election/info)
+Service Health                                                                                                           | GET     | [/election/health](http://localhost:8095/election/health)
+Service Metrics                                                                                                          | GET     | [/election/metrics](http://localhost:8095/election/metrics)
 Other [Spring Actuator](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready) endpoints | GET     | `/actuator`, `/mappings`, `/env`, `/configprops`, etc.
 Other [HATEOAS](https://spring.io/guides/gs/rest-hateoas) endpoints for `/election/elections`                            | Various | DELETE, PATCH, PUT, page sort, size, etc.
 
-The [HAL Browser](https://github.com/mikekelly/hal-browser) API browser for the `hal+json` media type is installed alongside the service. It can be accessed at `http://localhost:8099/election/actuator/`.
+The [HAL Browser](https://github.com/mikekelly/hal-browser) API browser for the `hal+json` media type is installed alongside the service. It can be accessed at `http://localhost:8095/election/actuator/`.
 
 ## Elections
 
