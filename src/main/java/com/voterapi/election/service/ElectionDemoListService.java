@@ -22,19 +22,19 @@ public class ElectionDemoListService {
 
     private void setElections() {
         elections.add(new Election(
-                new GregorianCalendar(2012, 11, 6).getTime(),
+                new GregorianCalendar(2012, 10, 6).getTime(),
                 ElectionType.FEDERAL,
                 "2012 Presidential Election"));
         elections.add(new Election(
-                new GregorianCalendar(2016, 11, 6).getTime(),
+                new GregorianCalendar(2016, 10, 6).getTime(),
                 ElectionType.FEDERAL,
                 "2016 Presidential Election"));
         elections.add(new Election(
-                new GregorianCalendar(2014, 11, 4).getTime(),
+                new GregorianCalendar(2014, 10, 4).getTime(),
                 ElectionType.STATE,
                 "2014 New York Gubernatorial Election"));
         elections.add(new Election(
-                new GregorianCalendar(2013, 11, 5).getTime(),
+                new GregorianCalendar(2013, 10, 5).getTime(),
                 ElectionType.LOCAL,
                 "2013 New York City Mayoral Election"));
     }
