@@ -22,7 +22,7 @@ public class Election implements Serializable {
 
     private String title;
 
-    Election() {
+    public Election() {
         // unused constructor
     }
 

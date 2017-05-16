@@ -36,7 +36,7 @@ public class ElectionEventHandler {
                 electionQueue.getName(), serializeToJson(elections));
     }
 
-    private String serializeToJson(Election elections) {
+    public String serializeToJson(Election elections) {
         ObjectMapper mapper = new ObjectMapper();
         String jsonInString = "";
 

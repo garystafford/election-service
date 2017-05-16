@@ -2,7 +2,6 @@ package com.voterapi.election.controller;
 
 import com.voterapi.election.domain.Election;
 import com.voterapi.election.domain.ElectionType;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
