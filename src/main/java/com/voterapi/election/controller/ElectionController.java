@@ -38,7 +38,7 @@ public class ElectionController {
      * @param elections
      * @return
      */
-    private String serializeToJson(List<Election> elections) {
+    public String serializeToJson(List<Election> elections) {
         ObjectMapper mapper = new ObjectMapper();
         String jsonInString = "";
 
