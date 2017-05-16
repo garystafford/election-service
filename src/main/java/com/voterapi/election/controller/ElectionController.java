@@ -51,8 +51,6 @@ public class ElectionController {
             logger.info(String.valueOf(e));
         }
 
-//        logger.debug("Serialized message payload: {}", jsonInString);
-
         return jsonInString;
     }
 
@@ -66,9 +64,13 @@ public class ElectionController {
         electionRepository.deleteAll();
         List<Election> elections = electionDemoListService.getElections();
         electionRepository.save(elections);
+
         Map<String, String> result = new HashMap<>();
         result.put("message", "Simulation data created!");
-        logger.debug("Serialized message payload: {}", serializeToJson(elections));
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("Serialized message payload: {}", serializeToJson(elections));
+        }
 
         return ResponseEntity.status(HttpStatus.OK).body(result); // return 200 with payload
     }
