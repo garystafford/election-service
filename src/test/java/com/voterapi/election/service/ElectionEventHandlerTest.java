@@ -13,6 +13,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -22,30 +23,17 @@ import java.util.GregorianCalendar;
 @SpringBootTest
 public class ElectionEventHandlerTest {
 
-    @Mock
-    private RabbitTemplate rabbitTemplate;
-
-    @Mock
-    private Queue electionQueue;
-
-    @InjectMocks
+    @Autowired
     ElectionEventHandler electionEventHandler;
 
     Election election = new Election();
 
     @Before
     public void setUp() throws Exception {
-        MockitoAnnotations.initMocks(this);
-
         election = new Election(
                 new GregorianCalendar(2017, 10, 5).getTime(),
                 ElectionType.FEDERAL,
                 "2017 Test Election");
-    }
-
-    @Test
-    public void handleElectionSave() throws Exception {
-        electionEventHandler.handleElectionSave(election);
     }
 
     @Test
