@@ -47,7 +47,7 @@ public class ElectionTest {
 
     @Test
     public void testToString() throws Exception {
-        String actual = "2017 Test Election (Sun Nov 05 00:00:00 EDT 2017)";
+        String actual = "2017 Test Election (Sun Nov 05 00:00:00 UTC 2017)";
         String expected = election.toString();
         Assert.assertEquals(expected, actual);
     }
