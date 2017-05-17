@@ -31,7 +31,7 @@ public class ElectionEventHandlerTest {
 
     @Test
     public void serializeToJson() throws Exception {
-        String actual = "{\"id\":null,\"date\":1509854400000,\"electionType\":\"FEDERAL\",\"title\":\"2017 Test Election\"}";
+        String actual = "{\"id\":null,\"date\":1509840000000,\"electionType\":\"FEDERAL\",\"title\":\"2017 Test Election\"}";
 
         String expected = electionEventHandler.serializeToJson(election);
 
