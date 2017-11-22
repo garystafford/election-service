@@ -14,7 +14,7 @@ management:
     git:
       mode: full
 server:
-  port: 8095
+  port: 8080
   context-path: /election
 spring:
   application:
@@ -60,6 +60,17 @@ spring:
   rabbitmq:
     host: "10.0.1.8"
   profiles: aws-production
+---
+services:
+  candidate:
+    host: candidate
+spring:
+  data:
+    mongodb:
+      host: mongodb
+  rabbitmq:
+    host: rabbitmq
+  profiles: docker-aks
 ---
 endpoints:
   enabled: false
