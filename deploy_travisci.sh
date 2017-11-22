@@ -36,6 +36,6 @@ IMAGE="garystafford/${SERVICE_NAME}-service"
 docker build -t ${IMAGE}:${BRANCH} .
 docker push ${IMAGE}:${BRANCH}
 
-IMAGE_TAG="0.3.${TRAVIS_BUILD_NUMBER}"
+IMAGE_TAG="0.4.${TRAVIS_BUILD_NUMBER}"
 docker tag ${IMAGE}:${BRANCH} ${IMAGE}:${IMAGE_TAG}
 docker push ${IMAGE}:${IMAGE_TAG}
