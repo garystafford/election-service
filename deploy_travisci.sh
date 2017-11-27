@@ -33,9 +33,6 @@ set -ex
 
 sleep 120 # wait for automated Docker Hub build to finish...
 IMAGE="garystafford/${SERVICE_NAME}-service"
-docker build -t ${IMAGE}:${BRANCH} .
-docker push ${IMAGE}:${BRANCH}
-
 IMAGE_TAG="0.4.${TRAVIS_BUILD_NUMBER}"
-docker tag ${IMAGE}:${BRANCH} ${IMAGE}:${IMAGE_TAG}
-docker push ${IMAGE}:${IMAGE_TAG}
+docker build -t ${IMAGE}:${BRANCH}-${IMAGE_TAG} .
+docker push ${IMAGE}:${BRANCH}-${IMAGE_TAG}
