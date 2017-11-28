@@ -5,15 +5,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.voterapi.election.domain.Election;
 import com.voterapi.election.repository.ElectionRepository;
 import com.voterapi.election.service.ElectionDemoListService;
+import com.voterapi.election.service.ElectionEventHandler;
+import com.voterapi.election.service.MessageBusUtilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.beans.EventHandler;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,14 +26,18 @@ import java.util.Map;
 public class ElectionController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     private ElectionRepository electionRepository;
     private ElectionDemoListService electionDemoListService;
+    private MessageBusUtilities messageBusUtilities;
 
     @Autowired
     public ElectionController(ElectionRepository electionRepository,
-                              ElectionDemoListService electionDemoListService) {
+                              ElectionDemoListService electionDemoListService,
+                              MessageBusUtilities messageBusUtilities) {
         this.electionRepository = electionRepository;
         this.electionDemoListService = electionDemoListService;
+        this.messageBusUtilities = messageBusUtilities;
     }
 
     /**
@@ -64,6 +72,10 @@ public class ElectionController {
         electionRepository.deleteAll();
         List<Election> elections = electionDemoListService.getElections();
         electionRepository.save(elections);
+
+        for (Election election : elections) {
+            messageBusUtilities.sendMessageAzureServiceBus(election);
+        }
 
         Map<String, String> result = new HashMap<>();
         result.put("message", "Simulation data created!");

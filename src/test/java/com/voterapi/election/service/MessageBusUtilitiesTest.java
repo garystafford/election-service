@@ -14,10 +14,10 @@ import java.util.GregorianCalendar;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ElectionEventHandlerTest {
+public class MessageBusUtilitiesTest {
 
     @Autowired
-    ElectionEventHandler electionEventHandler;
+    MessageBusUtilities messageBusUtilities;
 
     Election election = new Election();
 
@@ -33,7 +33,7 @@ public class ElectionEventHandlerTest {
     public void serializeToJson() throws Exception {
         String actual = "{\"id\":null,\"date\":1509840000000,\"electionType\":\"FEDERAL\",\"title\":\"2017 Test Election\"}";
 
-        String expected = electionEventHandler.serializeToJson(election);
+        String expected = messageBusUtilities.serializeToJson(election);
 
         Assert.assertEquals(expected, actual);
     }
