@@ -224,7 +224,7 @@ All profile property values may be overridden on the command line, or in a `.con
 ```bash
 java -jar <name_of_jar_file> \
   --spring.profiles.active=aws-production \
-  --spring.data.mongodb.host=<new_host_address>
+  --spring.data.mongodb.host=<new_host_address> \
   -Dlogging.level.root=DEBUG \
   -Djava.security.egd=file:/dev/./urandom
 ```
