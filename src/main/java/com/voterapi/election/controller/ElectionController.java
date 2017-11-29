@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.voterapi.election.domain.Election;
 import com.voterapi.election.repository.ElectionRepository;
-import com.voterapi.election.service.ElectionDemoListService;
 import com.voterapi.election.service.MessageBusUtilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,15 +24,12 @@ public class ElectionController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private ElectionRepository electionRepository;
-    private ElectionDemoListService electionDemoListService;
     private MessageBusUtilities messageBusUtilities;
 
     @Autowired
     public ElectionController(ElectionRepository electionRepository,
-                              ElectionDemoListService electionDemoListService,
                               MessageBusUtilities messageBusUtilities) {
         this.electionRepository = electionRepository;
-        this.electionDemoListService = electionDemoListService;
         this.messageBusUtilities = messageBusUtilities;
     }
 
@@ -59,28 +55,10 @@ public class ElectionController {
         return jsonInString;
     }
 
-    /**
-     * Populates database with list of candidates
-     *
-     * @return
-     */
-    @RequestMapping(value = "/simulation", method = RequestMethod.GET)
-    public ResponseEntity<Map<String, String>> getSimulation() {
+    @RequestMapping(value = "/elections/drop", method = RequestMethod.POST)
+    public ResponseEntity<Void> deleteAllElections() {
         electionRepository.deleteAll();
-        List<Election> elections = electionDemoListService.getElections();
-        electionRepository.save(elections);
-
-        for (Election election : elections) {
-            messageBusUtilities.sendMessageAzureServiceBus(election);
-        }
-
-        Map<String, String> result = new HashMap<>();
-        result.put("message", "Simulation data created!");
-
-        if (logger.isDebugEnabled()) {
-            logger.debug("Serialized message payload: {}", serializeToJson(elections));
-        }
-
-        return ResponseEntity.status(HttpStatus.OK).body(result); // return 200 with payload
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
 }
