@@ -12,8 +12,6 @@ elections=(
 echo "Dropping all existing election documents..."
 curl --request POST \
  --url $url/drop \
- --header 'content-type: application/json' \
- --data "$election"
 
 echo ""
 
