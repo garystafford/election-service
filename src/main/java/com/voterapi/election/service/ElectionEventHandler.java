@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
 @RepositoryEventHandler
 public class ElectionEventHandler {
 
-    private MessageBusUtilities messageBusUtilities;
+    private ElectionService electionService;
 
     @Autowired
-    public ElectionEventHandler( MessageBusUtilities messageBusUtilities) {
-        this.messageBusUtilities = messageBusUtilities;
+    public ElectionEventHandler(ElectionService electionService) {
+        this.electionService = electionService;
     }
 
     @HandleAfterCreate
     public void handleElectionCreate(Election elections) {
-        messageBusUtilities.sendMessageAzureServiceBus(elections);
+        electionService.sendMessageAzureServiceBus(elections);
     }
 }

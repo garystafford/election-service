@@ -15,22 +15,25 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MessageBusUtilities {
+public class ElectionService {
 
-    private final Logger logger = LoggerFactory.getLogger(MessageBusUtilities.class);
+    private final Logger logger = LoggerFactory.getLogger(ElectionService.class);
+    private Environment environment;
     private IQueueClient queueSendClient;
 
-    public MessageBusUtilities(Environment environment) {
+    public ElectionService(Environment environment) {
+        this.environment = environment;
+        createQueueClient();
+    }
 
+    private void createQueueClient() {
         String connectionString = environment.getProperty("azure.service-bus.connection-string");
         String queueName = "elections.queue";
         try {
             queueSendClient = new QueueClient(
                     new ConnectionStringBuilder(connectionString, queueName), ReceiveMode.PEEKLOCK);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ServiceBusException e) {
-            e.printStackTrace();
+        } catch (InterruptedException | ServiceBusException e) {
+            logger.info(String.valueOf(e));
         }
     }
 

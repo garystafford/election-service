@@ -17,7 +17,7 @@ import java.util.GregorianCalendar;
 public class MessageBusUtilitiesTest {
 
     @Autowired
-    MessageBusUtilities messageBusUtilities;
+    ElectionService messageBusUtilities;
 
     Election election = new Election();
 
