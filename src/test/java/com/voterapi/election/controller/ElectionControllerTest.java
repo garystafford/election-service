@@ -41,16 +41,4 @@ public class ElectionControllerTest {
 
         Assert.assertEquals(expected, actual);
     }
-
-    @Test
-    public void testGetSimulation() throws Exception {
-        Map<String, String> result = new HashMap<>();
-        result.put("message", "Simulation data created!");
-        ResponseEntity<Map<String, String>> actual = ResponseEntity.status(HttpStatus.OK).body(result);
-
-        ResponseEntity<Map<String, String>> expected = electionController.getSimulation();
-
-        Assert.assertEquals(expected.getBody(), actual.getBody());
-
-    }
 }
