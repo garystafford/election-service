@@ -1,6 +1,6 @@
 #!/bin/bash
 
-url="http://localhost:8095/election/elections"
+url="http://api.voter-demo.coelection/elections"
 
 elections=(
   '{"date":"2012-11-06","electionType":"FEDERAL","title":"2012 Presidential Election"}'
