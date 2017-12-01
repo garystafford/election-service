@@ -18,7 +18,7 @@ public class ElectionController {
         this.electionRepository = electionRepository;
     }
 
-    @RequestMapping(value = "/elections/drop", method = RequestMethod.POST)
+    @RequestMapping(value = "/drop/elections", method = RequestMethod.POST)
     public ResponseEntity<Void> deleteAllElections() {
         electionRepository.deleteAll();
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();

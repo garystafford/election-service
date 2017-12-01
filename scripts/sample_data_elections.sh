@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Drop all elections and POST new elections to CosmosDB, through API Gateway
+
 url="http://api.voter-demo.coelection/elections"
 
 elections=(

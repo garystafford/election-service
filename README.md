@@ -14,7 +14,6 @@ The service uses a context path of `/election`. All endpoints must be are prefix
 
 Purpose                                                                                                                  | Method  | Endpoint
 ------------------------------------------------------------------------------------------------------------------------ | :------ | :-----------------------------------------------------
-Create Sample Elections                                                                                                  | GET     | [/election/simulation](http://localhost:8095/election/simulation)
 Create Election                                                                                                          | POST    | [/election/elections](http://localhost:8095/election/elections)
 View Elections                                                                                                           | GET     | [/election/elections](http://localhost:8095/election/elections)
 Service Info                                                                                                             | GET     | [/election/info](http://localhost:8095/election/info)
