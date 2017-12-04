@@ -21,7 +21,8 @@ public class ElectionTest {
         election = new Election(
                 new GregorianCalendar(2017, 10, 5).getTime(),
                 ElectionType.FEDERAL,
-                "2017 Test Election");
+                "2017 Test Election",
+                "Test description");
     }
 
     @Test
