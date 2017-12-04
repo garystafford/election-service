@@ -17,10 +17,9 @@ public class Election implements Serializable {
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date date;
-
     private ElectionType electionType;
-
     private String title;
+    private String description;
 
     public Election() {
         // unused constructor
@@ -28,10 +27,12 @@ public class Election implements Serializable {
 
     public Election(Date date,
                     ElectionType electionType,
-                    String title) {
+                    String title,
+                    String description) {
         this.date = date;
         this.electionType = electionType;
         this.title = title;
+        this.description = description;
     }
 
     public String getId() {
@@ -50,10 +51,12 @@ public class Election implements Serializable {
         return title;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     @Override
     public String toString() {
         return String.format("%s (%s)", getTitle(), getDate());
     }
 }
-
-
