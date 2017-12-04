@@ -26,12 +26,13 @@ public class MessageBusUtilitiesTest {
         election = new Election(
                 new GregorianCalendar(2017, 10, 5).getTime(),
                 ElectionType.FEDERAL,
-                "2017 Test Election");
+                "2017 Test Election",
+                "Test description");
     }
 
     @Test
     public void serializeToJson() throws Exception {
-        String actual = "{\"id\":null,\"date\":1509840000000,\"electionType\":\"FEDERAL\",\"title\":\"2017 Test Election\"}";
+        String actual = "{\"id\":null,\"date\":1509840000000,\"electionType\":\"FEDERAL\",\"title\":\"2017 Test Election\",\"description\":\"Test description\"}";
 
         String expected = messageBusUtilities.serializeToJson(election);
 
