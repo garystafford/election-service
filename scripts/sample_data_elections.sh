@@ -2,7 +2,8 @@
 
 # Drop all elections and POST new elections to CosmosDB, through API Gateway
 
-url="http://api.voter-demo.coelection/elections"
+#url="https://api.voter-demo.com/election/elections"
+url="http://localhost:8095/election"
 
 elections=(
   '{"date":"2012-11-06","electionType":"FEDERAL","title":"2012 Presidential Election","description":"57th quadrennial American presidential election"}'
@@ -14,15 +15,15 @@ elections=(
 
 echo "Dropping all existing election documents..."
 curl --request POST \
- --url $url/drop \
+ --url ${url}/drop/elections \
 
 echo ""
 
 for election in "${elections[@]}"
 do
-  echo "POSTing $election"
+  echo "POSTing ${election}"
   curl --request POST \
-   --url $url \
+   --url ${url}/elections \
    --header 'content-type: application/json' \
-   --data "$election"
+   --data "${election}"
 done

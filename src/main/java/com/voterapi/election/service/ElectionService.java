@@ -18,29 +18,25 @@ import org.springframework.stereotype.Component;
 public class ElectionService {
 
     private final Logger logger = LoggerFactory.getLogger(ElectionService.class);
-    private Environment environment;
     private IQueueClient queueSendClient;
+    private Environment environment;
 
     public ElectionService(Environment environment) {
         this.environment = environment;
-        createQueueClient();
     }
 
-    private void createQueueClient() {
+    public void sendMessageAzureServiceBus(Election election) {
         String connectionString = environment.getProperty("azure.service-bus.connection-string");
         String queueName = "elections.queue";
         try {
             queueSendClient = new QueueClient(
                     new ConnectionStringBuilder(connectionString, queueName), ReceiveMode.PEEKLOCK);
+            String message = serializeToJson(election);
+            queueSendClient.sendAsync(new Message(message))
+                    .thenRunAsync(queueSendClient::closeAsync);
         } catch (InterruptedException | ServiceBusException e) {
-            logger.info(String.valueOf(e));
+            logger.error(String.valueOf(e.getStackTrace()));
         }
-    }
-
-    public void sendMessageAzureServiceBus(Election election) {
-        String message = serializeToJson(election);
-        queueSendClient.sendAsync(new Message(message))
-                .thenRunAsync(queueSendClient::closeAsync);
     }
 
     protected String serializeToJson(Election elections) {
@@ -50,7 +46,7 @@ public class ElectionService {
         try {
             jsonInString = mapper.writeValueAsString(elections);
         } catch (JsonProcessingException e) {
-            logger.info(String.valueOf(e));
+            logger.error(String.valueOf(e.getStackTrace()));
         }
 
         if (logger.isDebugEnabled()) {

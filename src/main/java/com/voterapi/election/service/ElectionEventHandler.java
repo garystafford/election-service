@@ -18,7 +18,7 @@ public class ElectionEventHandler {
     }
 
     @HandleAfterCreate
-    public void handleElectionCreate(Election elections) {
-        electionService.sendMessageAzureServiceBus(elections);
+    public void handleElectionCreate(Election election) {
+        electionService.sendMessageAzureServiceBus(election);
     }
 }
