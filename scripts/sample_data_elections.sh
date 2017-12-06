@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Drop all elections and POST new elections to CosmosDB, through API Gateway
+# Drop all elections and POST new elections to CosmosDB
 
 url="https://api.voter-demo.com"
 # url="http://localhost:8095"
@@ -13,10 +13,10 @@ elections=(
   '{"date":"2018-11-06","electionType":"FEDERAL","title":"2018 United States Senate Elections","description":"Elections to the United States Senate"}'
 )
 
-echo "Dropping all existing elctions documents from candidates DB..."
+echo "Dropping all existing elections documents from candidates DB..."
 curl --request POST --url ${url}/candidate/drop/elections
 
-echo "Dropping all existing elctions documents from elections DB..."
+echo "Dropping all existing elections documents from elections DB..."
 curl --request POST --url ${url}/election/drop/elections
 
 echo ""
