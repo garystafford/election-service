@@ -4,9 +4,9 @@
 
 ## Introduction
 
-The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by Azure CosmosDB (MongoDB) and Azure Service Bus. It is part of the Voter API project (see below). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections, and inspect technical information about the running service. API users can also create sample elections by calling the `/election/simulation` endpoint.
+The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by Azure Cosmos DB (type: MongoDB) and Azure Service Bus. It is part of the Voter API project (see below). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections, and inspect technical information about the running service. API users can also create sample elections by calling the `/election/simulation` endpoint.
 
-![Voter API Architecture](Message_Queue_Diagram_Final.png)
+![Architecture](AKS_SB_CosmosDB.png)
 
 ## Election Service Endpoints
 
@@ -35,6 +35,7 @@ http POST http://localhost:8095/election/elections \
   date='2008-11-04' \
   electionType='FEDERAL' \
   title='2008 Presidential Election'
+  description='56th quadrennial American presidential election'
 ```
 
 ## Sample Output
@@ -43,7 +44,8 @@ http POST http://localhost:8095/election/elections \
 http POST http://localhost:8095/election/elections \
   date='2008-11-04' \
   electionType='FEDERAL' \
-  title='2008 Presidential Election'
+  title='2008 Presidential Election' \
+  description='56th quadrennial American presidential election'
 ```
 
 ```text
@@ -71,6 +73,7 @@ X-Application-Context: Election Service:8095
     },
     "date": "2008-11-04T00:00:00.000+0000",
     "electionType": "FEDERAL",
-    "title": "2008 Presidential Election"
+    "title": "2008 Presidential Election",
+    "description": "56th quadrennial American presidential election"
 }
 ```

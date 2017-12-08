@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Drop all elections and POST new elections to CosmosDB
+# Drop all elections and POST new elections to Cosmos DB
 
 url="https://api.voter-demo.com"
 # url="http://localhost:8095"
