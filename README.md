@@ -4,8 +4,7 @@
 
 ## Introduction
 
-The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by MongoDB Atlas on GCP and RabbitMQ on GCP (using Compose). It is part of the Voter API project (see below). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections, and inspect technical information about the running service. API users can also create sample elections by calling the `/election/simulation` endpoint.
-
+The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by MongoDB Atlas on GCP and RabbitMQ on GCP (using Compose). It is part of the Voter API project (see below). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections, and inspect technical information about the running service.
 ![Architecture](GKE_Istio_v2.png)
 
 ## Election Service Endpoints
