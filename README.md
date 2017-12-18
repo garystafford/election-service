@@ -1,12 +1,12 @@
-[![Build Status](https://travis-ci.org/garystafford/election-service.svg?branch=rabbitmq)](https://travis-ci.org/garystafford/election-service) [![Layers](https://images.microbadger.com/badges/image/garystafford/election-service.svg)](https://microbadger.com/images/garystafford/election-service "Get your own image badge on microbadger.com") [![Version](https://images.microbadger.com/badges/version/garystafford/election-service.svg)](https://microbadger.com/images/garystafford/election-service "Get your own version badge on microbadger.com")
+[![Build Status](https://travis-ci.org/garystafford/election-service.svg?branch=gke)](https://travis-ci.org/garystafford/election-service) [![Layers](https://images.microbadger.com/badges/image/garystafford/election-service.svg)](https://microbadger.com/images/garystafford/election-service "Get your own image badge on microbadger.com") [![Version](https://images.microbadger.com/badges/version/garystafford/election-service.svg)](https://microbadger.com/images/garystafford/election-service "Get your own version badge on microbadger.com")
 
 # Election Service
 
 ## Introduction
 
-The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by Azure Cosmos DB (type: MongoDB) and Azure Service Bus. It is part of the Voter API project (see below). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections, and inspect technical information about the running service. API users can also create sample elections by calling the `/election/simulation` endpoint.
+The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by MongoDB Atlas on GCP and RabbitMQ on GCP (using Compose). It is part of the Voter API project (see below). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections, and inspect technical information about the running service. API users can also create sample elections by calling the `/election/simulation` endpoint.
 
-![Architecture](AKS_SB_CosmosDB.png)
+![Architecture](GKE_Istio_v2.png)
 
 ## Election Service Endpoints
 
@@ -16,6 +16,7 @@ Purpose                                                                         
 ------------------------------------------------------------------------------------------------------------------------ | :------ | :-----------------------------------------------------
 Create Election                                                                                                          | POST    | [/election/elections](http://localhost:8095/election/elections)
 View Elections                                                                                                           | GET     | [/election/elections](http://localhost:8095/election/elections)
+Drop All Elections                                                                                                       | POST    | [/drop/elections](http://localhost:8095/election/drop/elections)
 Service Info                                                                                                             | GET     | [/election/info](http://localhost:8095/election/info)
 Service Health                                                                                                           | GET     | [/election/health](http://localhost:8095/election/health)
 Service Metrics                                                                                                          | GET     | [/election/metrics](http://localhost:8095/election/metrics)
