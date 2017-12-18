@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/garystafford/election-service.svg?branch=rabbitmq)](https://travis-ci.org/garystafford/election-service) [![Layers](https://images.microbadger.com/badges/image/garystafford/election-service.svg)](https://microbadger.com/images/garystafford/election-service "Get your own image badge on microbadger.com") [![Version](https://images.microbadger.com/badges/version/garystafford/election-service.svg)](https://microbadger.com/images/garystafford/election-service "Get your own version badge on microbadger.com")
+[![Build Status](https://travis-ci.org/garystafford/election-service.svg?branch=kub-aks)](https://travis-ci.org/garystafford/election-service) [![Layers](https://images.microbadger.com/badges/image/garystafford/election-service.svg)](https://microbadger.com/images/garystafford/election-service "Get your own image badge on microbadger.com") [![Version](https://images.microbadger.com/badges/version/garystafford/election-service.svg)](https://microbadger.com/images/garystafford/election-service "Get your own version badge on microbadger.com")
 
 # Election Service
 
 ## Introduction
 
-The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by Azure Cosmos DB (type: MongoDB) and Azure Service Bus. It is part of the Voter API project (see below). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections, and inspect technical information about the running service. API users can also create sample elections by calling the `/election/simulation` endpoint.
+The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by Azure Cosmos DB (type: MongoDB) and Azure Service Bus. It is part of the Voter API project (see below). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections, and inspect technical information about the running service.
 
 ![Architecture](AKS_SB_CosmosDB.png)
 
