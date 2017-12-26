@@ -4,7 +4,8 @@
 
 ## Introduction
 
-The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by MongoDB, using Atlas on GCP, and RabbitMQ, using CloudAMQP on GCP. It is part of the Voter API (see diagram below). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections, and inspect technical information about the running service.
+The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by MongoDB, using Atlas on GCP, and RabbitMQ, using CloudAMQP on GCP. It is part of the Voter API (see diagram below). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections and inspect technical information about the running service.
+
 ![Architecture](GKE_AMPQ_v1.png)
 
 ## Election Service Endpoints
@@ -41,8 +42,6 @@ http POST http://localhost:8095/election/elections \
   description='56th quadrennial American presidential election'
 ```
 
-## Sample Output
-
 ```bash
 http POST http://localhost:8095/election/elections \
   date='2008-11-04' \
@@ -60,6 +59,8 @@ wget --method POST \
   --no-verbose \
   --output-document - http://localhost:8095/election/elections
 ```
+
+## Sample Output
 
 ```text
 HTTP/1.1 201
