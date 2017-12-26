@@ -51,6 +51,16 @@ http POST http://localhost:8095/election/elections \
   description='56th quadrennial American presidential election'
 ```
 
+wget
+
+```bash
+wget --method POST \
+  --header 'content-type: application/json' \
+  --body-data '{ "electionType": "2008-11-04", "electionType": "FEDERAL", "title": "2008 Presidential Election", "description": "56th quadrennial American presidential election" }' \
+  --no-verbose \
+  --output-document - http://localhost:8095/election/elections
+```
+
 ```text
 HTTP/1.1 201
 Access-Control-Allow-Credentials: true
