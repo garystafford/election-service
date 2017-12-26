@@ -4,7 +4,7 @@
 
 ## Introduction
 
-The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by MongoDB, using Atlas on GCP, and RabbitMQ, using CloudAMQP on GCP. It is part of the Voter API project (see below). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections, and inspect technical information about the running service.
+The Election [Spring Boot](https://projects.spring.io/spring-boot/) Service is a RESTful Web Service, backed by MongoDB, using Atlas on GCP, and RabbitMQ, using CloudAMQP on GCP. It is part of the Voter API (see diagram below). The Election service exposes several HTTP API endpoints, listed below. API users can manage elections, and inspect technical information about the running service.
 ![Architecture](GKE_AMPQ_v1.png)
 
 ## Election Service Endpoints
@@ -19,8 +19,8 @@ Read Election                                                                   
 Read Elections                                                                                                           | GET     | [/election/elections](http://localhost:8095/election/elections)
 Update Election                                                                                                          | PUT     | [/election/elections/{id}](http://localhost:8095/election/elections/{id})
 Delete Election                                                                                                          | DELETE  | [/election/elections/{id}](http://localhost:8095/election/elections/{id})
-Drop All Elections                                                                                                       | POST    | [/drop/elections](http://localhost:8095/election/drop/elections)
-Service Info                                                                                                             | GET     | [/election/info](http://localhost:8095/election/info)
+Drop All Elections                                                                                                       | POST    | [/election/drop/elections](http://localhost:8095/election/drop/elections)
+Service Info                                                                                                             | GET     | [/election/election/info](http://localhost:8095/election/info)
 Service Health                                                                                                           | GET     | [/election/health](http://localhost:8095/election/health)
 Other [Spring Actuator](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready) endpoints | GET     | `election/actuator`, `election/metrics`, `election/env`, `election/configprops`, etc.
 Other [HATEOAS](https://spring.io/guides/gs/rest-hateoas) endpoints for `/election/elections`                            | Various | page sort, size, etc.
