@@ -8,7 +8,17 @@ import org.springframework.context.annotation.Configuration;
 public class ElectionConfig {
 
     @Bean
-    public Queue electionQueue() {
-        return new Queue("elections.queue");
+    public Queue electionCreatedQueue() {
+        return new Queue("election_created_queue");
+    }
+
+    @Bean
+    public Queue electionUpdatedQueue() {
+        return new Queue("election_updated_queue");
+    }
+
+    @Bean
+    public Queue electionDeletedQueue() {
+        return new Queue("election_deleted_queue");
     }
 }
