@@ -17,7 +17,7 @@ public class Election implements Serializable {
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date date;
-    private ElectionType electionType;
+    private String electionType;
     private String title;
     private String description;
 
@@ -26,7 +26,7 @@ public class Election implements Serializable {
     }
 
     public Election(Date date,
-                    ElectionType electionType,
+                    String electionType,
                     String title,
                     String description) {
         this.date = date;
@@ -43,7 +43,7 @@ public class Election implements Serializable {
         return date;
     }
 
-    public ElectionType getElectionType() {
+    public String getElectionType() {
         return electionType;
     }
 
