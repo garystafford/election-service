@@ -20,7 +20,7 @@ public class ElectionTest {
     public void setUp() throws Exception {
         election = new Election(
                 new GregorianCalendar(2017, 10, 5).getTime(),
-                ElectionType.FEDERAL,
+                "Federal",
                 "2017 Test Election",
                 "Test description");
     }
@@ -34,8 +34,8 @@ public class ElectionTest {
 
     @Test
     public void testGetElectionType() throws Exception {
-        ElectionType actual = ElectionType.FEDERAL;
-        ElectionType expected = election.getElectionType();
+        String actual = "Federal";
+        String expected = election.getElectionType();
         Assert.assertEquals(expected, actual);
     }
 

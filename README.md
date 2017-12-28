@@ -20,6 +20,7 @@ Read Election                                                                   
 Read Elections                                                                                                           | GET     | [/election/elections](http://localhost:8095/election/elections)
 Update Election                                                                                                          | PUT     | [/election/elections/{id}](http://localhost:8095/election/elections/{id})
 Delete Election                                                                                                          | DELETE  | [/election/elections/{id}](http://localhost:8095/election/elections/{id})
+Distinct List of Elections                                                                                               | GET     | [/election/summary](http://localhost:8095/election/summary)
 Drop All Elections                                                                                                       | POST    | [/election/drop/elections](http://localhost:8095/election/drop/elections)
 Service Info                                                                                                             | GET     | [/election/election/info](http://localhost:8095/election/info)
 Service Health                                                                                                           | GET     | [/election/health](http://localhost:8095/election/health)
